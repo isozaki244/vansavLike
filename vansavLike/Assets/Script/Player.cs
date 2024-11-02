@@ -6,20 +6,22 @@ public class Player : MonoBehaviour
 {
 	[Header("ç≈ëÂëÃóÕ")]
 	[SerializeField]
-	float maxHp;
-
+	private float maxHp;
 	[Header("ë¨ìx")]
 	[SerializeField]
-	float speed;
+	private float speed;
+	[SerializeField]
+	private float hp;
 
-	[SerializeField]
-	float hp;
+	// å¸Ç´
+	private Vector3 dir;
 
-	Transform mTransform;
-	[SerializeField]
-	float scaleX;
-	[SerializeField]
-	Transform hpTransform;
+	private Transform mTransform;
+
+	private float scaleX;
+	private Transform hpTransform;
+
+	private WeaponEmitter weaponEmitter;
 
     // Start is called before the first frame update
     void Start()
@@ -28,33 +30,42 @@ public class Player : MonoBehaviour
 		hpTransform = mTransform.GetChild(0).transform;
 		hp = maxHp;
 		scaleX = hpTransform.localScale.x;
-    }
+		weaponEmitter = mTransform.GetChild(2).GetComponent<WeaponEmitter>();
+	}
 
     // Update is called once per frame
     void Update()
     {
+		dir = new Vector3(0f, 0f, 0f);
+
 		// âEà⁄ìÆ
         if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
 		{
-			mTransform.position += new Vector3(0.01f, 0.0f, 0.0f) * speed;
+			dir.x = 1;
 		}
 
 		// ç∂à⁄ìÆ
 		if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
 		{
-			mTransform.position += new Vector3(-0.01f, 0.0f, 0.0f) * speed;
+			dir.x = -1;
 		}
 
 		// è„à⁄ìÆ
 		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
 		{
-			mTransform.position += new Vector3(0.0f, 0.01f, 0.0f) * speed;
+			dir.y = 1;
 		}
 
 		// â∫à⁄ìÆ
 		if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
 		{
-			mTransform.position += new Vector3(0.0f, -0.01f, 0.0f) * speed;
+			dir.y = -1;
+		}
+
+		mTransform.position += dir * speed * 0.01f;
+		if (dir != new Vector3(0f, 0f, 0f))
+		{
+			weaponEmitter.SetEmitDir(dir);
 		}
 	}
 
