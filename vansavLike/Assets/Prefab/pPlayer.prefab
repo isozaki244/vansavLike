@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8378551030351064839}
   - component: {fileID: 5477706122166716673}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HPbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,6 +84,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &5529555200767490902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4816970039367110176}
+  - component: {fileID: 1284477934863993543}
+  m_Layer: 6
+  m_Name: Emitter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4816970039367110176
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5529555200767490902}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2075591641268034818}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1284477934863993543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5529555200767490902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc25c76762c4a24fa44fb981037834d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6155190761887456381
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +141,7 @@ GameObject:
   - component: {fileID: 7288647361546839194}
   - component: {fileID: 5182932748678071341}
   - component: {fileID: 6528174990802149324}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -119,6 +163,7 @@ Transform:
   m_Children:
   - {fileID: 8378551030351064839}
   - {fileID: 4459483644245598403}
+  - {fileID: 4816970039367110176}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4928579838785788677
@@ -262,7 +307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4459483644245598403}
   - component: {fileID: 4596443734454202171}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HPEmpty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
